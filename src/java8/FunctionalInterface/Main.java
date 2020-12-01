@@ -1,8 +1,12 @@
 package java8.FunctionalInterface;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+
+import com.sun.accessibility.internal.resources.accessibility;
+import com.sun.org.apache.xpath.internal.operations.And;
 
 /**
  * 函数式接口
@@ -29,6 +33,8 @@ public class Main {
 
         //输出大于3的元素
         eval(nums, a -> a > 3);
+        
+        and(a -> a.equals("a"));
     }
 
     /**
@@ -42,5 +48,14 @@ public class Main {
                 System.out.println(a + "");
             }
         });
+    }
+    
+    private static void and(Predicate<String> predicate) {
+    	List<String> list = Arrays.asList("a","b","c");
+    	list.forEach(el -> {
+    		if(predicate.and(a -> a.equals("a")).test(el)) {
+    			System.out.println(el);
+    		}
+    	});
     }
 }

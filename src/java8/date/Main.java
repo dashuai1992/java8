@@ -1,6 +1,7 @@
 package java8.date;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * java8提供的新的时间api
@@ -11,6 +12,9 @@ public class Main {
         //获取当前时间
         LocalDateTime now = LocalDateTime.now();
         System.out.println(now);
+        
+        // 格式化
+        System.out.println(now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
 
         LocalDate localDate = now.toLocalDate();
